@@ -4,9 +4,15 @@ from airflow.sdk import dag, task
 from airflow.operators.bash import BashOperator
 from databricks.sdk import WorkspaceClient
 from databricks.sdk.service.jobs import RunLifeCycleState, RunResultState
+import pendulum 
 
 
-@dag
+@dag(
+        dag_id="orchestrate",
+        schedule="0 11 * * *",
+        catchup=False,
+        start_date=pendulum.datetime(year=2026, month=7, day=27, tz="Asia/Kolkata")
+)
 def orchestrate():
 
     @task
