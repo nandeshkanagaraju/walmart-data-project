@@ -9,7 +9,7 @@ models:
                       where: "price > 0"
               
     
-    - name: orders_t
+    - name: order_t
       columns:
             - name: order_id
               data_tests:
